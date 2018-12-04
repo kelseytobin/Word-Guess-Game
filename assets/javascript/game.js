@@ -12,10 +12,11 @@ var losses = 0;
 //misc variables
 var lettersAvailable = "abcdefghijklmnopqrstuvwxyz";
 var lettersMatched = "";
+var output = ""; //output = what is displayed in hash marks?
 
-var currentWord = "" ;
-var messages = "" ;
-var userGuess = "" ;
+var currentWord = words[Math.floor(Math.random() * words.length)];
+var messages = "" ; //put inside function?
+var userGuess = "" ; //put inside onkeyup function?
 
 //create variables that hold references to the places in HTML where we want to display things
 var lettersMatchedText = document.getElementById("letters-matched-text");
@@ -23,10 +24,6 @@ var wrongGuessesText = document.getElementById("wrong-guesses-text");
 var guessesLeftText = document.getElementById("guesses-left-text");
 var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementsById("losses-text");
-
-
-
-
 
 
 //Functions///////////////////////////////////////////////////////////////////

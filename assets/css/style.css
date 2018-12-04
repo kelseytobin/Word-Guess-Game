@@ -17,22 +17,23 @@ body {
     margin: 40px;
     margin-bottom: 20px;
     border-color: white;
+
     
 }
 
-#letter-text,
+.card-header {
+    font-weight: bolder;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+}
+
+#letters-matched-text,
 #wrong-guesses-text,
 #guesses-left-text,
 #wins-text,
 #losses-text {
-    padding: 10px;
+    padding: 15px;
+    font-weight: bolder;
    
 }
 
-/* #letter-text,
-#wrong-guesses-text,
-#guesses-left-text,
-#wins-text {
-    border-bottom: 1px solid;
-    border-color: gray;
-} */

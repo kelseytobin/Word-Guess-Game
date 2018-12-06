@@ -30,7 +30,7 @@ var lossesText = document.getElementById("losses-text");
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
         userGuess = event.key;
-        document.getElementById("letters").value = "";
+        // document.getElementById("letters").value = "";
          
     }
 

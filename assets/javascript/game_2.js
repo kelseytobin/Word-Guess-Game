@@ -1,41 +1,80 @@
-var display = document.querySelector("display");
-var userGuess = document.querySelector("character");
-var textForm = document.querySelector("");
+//js initial
+var game = function(id) {
+    return document.getElementById(id);
+}
 
-var parkWords = [
+//declare var and initialize
+var game = [
     "sequoia", "glacier", "olympic", "redwood", "saguaro"
 ];
 
-//select random word
+var choices = [Math.floor(Math.random() * 5)];
+var answer = game[choices];
+var myLength = answer.length;
+var display = [myLength];
+var win = [myLength];
+var letter = answer.split("");
+var lives = 7;
+var output = "";
+var userLetter = "";
 
-var getWord = function(array) {
-    return array[Math.floor(Math.random() * array.length)];
+//var references for text
+var outputText = document.getElementById("output-display");
+var wrongText = document.getElementById("wrong-display");
+var livesText = document.getElementById("lives");
+var winsText = document.getElementById("wins-display");
+var lossesText = document.getElementById("losses-display");
+
+//function
+
+document.onkeyup = function (event) {
+    var guess = event.key;
 }
 
-var currentWord = getWord(parkWords);
-
-//input values
-
-textForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    var lives = 7;
-    var guessedLetters = [];
-    var lettersMatched = [];
-
-    var guessWord = guessQuerySelector.value;
-
-    for (i = 0; i < shorterWordlength; i++) {
-        if (guessWord[i] === randomWord[i]) {
-          correctCharacters.push(guessWord[i])
-          console.log("correct " + correctCharacters)
-        } else {
-          triedCharacters.push(guessWord[i])
-          console.log("incorrect " + triedCharacters)
-        }
+var setup = function() {
+    for (var i = 0;i < answer.length; i++); {
+        display[i] = "_";
+        output = outputText + display[i];
+        console.log(display);
+        document.getElementById("").innerHTML = output;
     }
-    randomWord = getRandomWord(commonWords);
-    console.log('randomWord', randomWord);
-  })
+    // document.getElementById("output-display").innerHTML = output;
+    output = "";
+}
+
+var submit = function() {
+    output = "";
+    userLetter = ("letter").value;
+
+    for (var x=0; x < answer.length; x++); {
+    if(userLetter.toUpperCase() == letter[x]) {
+        display[x] = userLetter.toUpperCase();
+        win--;
+    }
+    output = output + display[x] + "";
+    }
+    document.getElementById("").innerHTML = output;
+    output = "";
+    lives--;
+
+    if (win < 1) {
+        document.getElementById("wins-text").innerHTML = "You win!";
+    }
+    else if (lives < 1) {
+        document.getElementById("losses-text").innerHTML = "You lose!";
+    }
+    else {
+        document.getElementById("lives-text").innerHTML = "You have " + lives +" guesses left";
+    }
+
+}
+
+       
 
 
+//execute
+
+window.onload = function() {
+    setup();
+    game("submit").onclick = submit; 
+}

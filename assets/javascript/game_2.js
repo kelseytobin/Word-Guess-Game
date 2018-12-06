@@ -4,16 +4,16 @@ var game = function(id) {
 }
 
 //declare var and initialize
-var game = [
+var words = [
     "sequoia", "glacier", "olympic", "redwood", "saguaro"
 ];
 
-var choices = [Math.floor(Math.random() * 5)];
-var answer = game[choices];
+var select = [Math.floor(Math.random() * 5)];
+var current = game[choices];
 var myLength = answer.length;
 var display = [myLength];
 var win = [myLength];
-var letter = answer.split("");
+var letter = current.split("");
 var lives = 7;
 var output = "";
 var userLetter = "";
@@ -27,12 +27,12 @@ var lossesText = document.getElementById("losses-display");
 
 //function
 
-document.onkeyup = function (event) {
-    var guess = event.key;
-}
-
 var setup = function() {
-    for (var i = 0;i < answer.length; i++); {
+    document.onkeyup = function (event) {
+        userLetter = event.key;
+    }
+
+    for (var i = 0;i < current.length; i++); {
         display[i] = "_";
         output = outputText + display[i];
         console.log(display);
@@ -44,12 +44,12 @@ var setup = function() {
 
 var submit = function() {
     output = "";
-    userLetter = ("letter").value;
+    userLetter = event.key.value;
 
-    for (var x=0; x < answer.length; x++); {
+    for (var x=0; x < current.length; x++); {
     if(userLetter.toUpperCase() == letter[x]) {
         display[x] = userLetter.toUpperCase();
-        win--;
+        // win--;
     }
     output = output + display[x] + "";
     }

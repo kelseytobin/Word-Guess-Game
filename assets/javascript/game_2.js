@@ -1,9 +1,6 @@
-//js initial
-var game = function(id) {
-    return document.getElementById(id);
-}
 
-//declare var and initialize
+
+//declare var 
 var words = [
     "sequoia", "glacier", "olympic", "redwood", "saguaro"
 ];
@@ -26,10 +23,13 @@ var winsText = document.getElementById("wins-display");
 var lossesText = document.getElementById("losses-display");
 
 //function
+var game = function(id) {
+    return document.getElementById(id);
+}
 
-var setup = function() {
+ var setup = function() {
     document.onkeyup = function (event) {
-        userLetter = event.key;
+    userLetter = event.key;
     }
 
     for (var i = 0;i < current.length; i++); {
@@ -69,12 +69,14 @@ var submit = function() {
 
 }
 
+
        
 
 
 //execute
 
 window.onload = function() {
+    game();
     setup();
     game("submit").onclick = submit; 
 }

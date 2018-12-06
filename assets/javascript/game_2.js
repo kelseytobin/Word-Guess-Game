@@ -6,7 +6,7 @@ var words = [
 ];
 
 var select = [Math.floor(Math.random() * 5)];
-var current = game[choices];
+var current = words[choices];
 var myLength = answer.length;
 var display = [myLength];
 var win = [myLength];
@@ -82,5 +82,5 @@ var submit = function() {
 window.onload = function() {
     game();
     setup();
-    game("submit").onclick = submit; 
+    ("submit").onclick = submit; 
 }

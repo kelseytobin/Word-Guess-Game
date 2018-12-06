@@ -23,6 +23,9 @@ var winsText = document.getElementById("wins-display");
 var lossesText = document.getElementById("losses-display");
 
 //function
+
+// needs to go somewhere:  document.getElementById("submitguess").onclick = function(){ 
+
 var game = function(id) {
     return document.getElementById(id);
 }
@@ -30,6 +33,7 @@ var game = function(id) {
  var setup = function() {
     document.onkeyup = function (event) {
     userLetter = event.key;
+    
     }
 
     for (var i = 0;i < current.length; i++); {

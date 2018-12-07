@@ -6,8 +6,8 @@ var words = [
 ];
 
 var select = [Math.floor(Math.random() * 5)];
-var current = words[choices];
-var myLength = answer.length;
+var current = words[select];
+var myLength = current.length;
 var display = [myLength];
 var win = [myLength];
 var letter = current.split("");
@@ -38,9 +38,9 @@ var game = function(id) {
 
     for (var i = 0;i < current.length; i++); {
         display[i] = "_";
-        output = outputText + display[i];
+        output = display[i];
         console.log(display);
-        document.getElementById("").innerHTML = output;
+        document.getElementById("output-display").innerHTML = output;
     }
     // document.getElementById("output-display").innerHTML = output;
     output = "";
@@ -48,11 +48,11 @@ var game = function(id) {
 
 var submit = function() {
     output = "";
-    userLetter = event.key.value;
+    userLetter = event.key;
 
     for (var x=0; x < current.length; x++); {
-    if(userLetter.toUpperCase() == letter[x]) {
-        display[x] = userLetter.toUpperCase();
+    if(userLetter == letter[x]) {
+        display[x] = userLetter();
         // win--;
     }
     output = output + display[x] + "";
@@ -82,5 +82,6 @@ var submit = function() {
 window.onload = function() {
     game();
     setup();
-    ("submit").onclick = submit; 
+    // ("enter").onclick = submit; 
+    submit ();
 }

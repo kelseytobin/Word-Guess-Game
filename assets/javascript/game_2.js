@@ -1,7 +1,6 @@
 //declare var
 var words = ["sequoia", "glacier", "olympic", "redwood", "saguaro"];
 
-// var select = Math.floor(Math.random() * words.length) + 1;
 var current = "";
 var display = [];
 var win = 0;
@@ -22,11 +21,10 @@ var lossesText = document.getElementById("losses-display");
 var game = document.getElementById("game");
 var setup = function() {
   current = words[Math.floor(Math.random() * words.length) + 1];
-  display = current.split("").map(function(letter) {
+  display = current.split("").map(function(guessedLetter) {
     return "_";
   });
   outputText.innerHTML = display.join(" ");
-  console.log(win);
   winsText.innerHTML = win.toString();
   lossesText.innerHTML = losses.toString();
   livesText.innerHTML = lives.toString();

@@ -1,18 +1,4 @@
-
-
-//declare var 
-var words = [
-    "sequoia", "glacier", "olympic", "redwood", "saguaro"
-];
-
-var select = [Math.floor(Math.random() * 5)];
-var current = words[select];
-var myLength = current.length;
-var display = [myLength];
-var win = [myLength];
-var letter = current.split("");
 var lives = 7;
-var output = "";
 var userLetter = "";
 
 //var references for text
@@ -24,64 +10,60 @@ var lossesText = document.getElementById("losses-display");
 
 //function
 
-// needs to go somewhere:  document.getElementById("submitguess").onclick = function(){ 
+var game = document.getElementById("game");
 
-var game = function(id) {
-    return document.getElementById(id);
+var setup = function() {
+  current = words[Math.floor(Math.random() * words.length) + 1];
+  display = current.split("").map(function(letter){
+    return "_";
+  
+  })
+  outputText.innerHTML = display.join(" ");
+  console.log(win);
+  winsText.innerHTML = win.toString();
+  lossesText.innerHTML = losses.toString();
+  livesText.innerHTML = lives.toString();
+  // document.onkeyup = function(event) {
+  //   userLetter = event.key;
+  };
+
+
+var collectInput = function() {
+  letter.addEventListener(keypress, collectInput, useCapture);
 }
 
- var setup = function() {
-    document.onkeyup = function (event) {
-    userLetter = event.key;
-    
-    }
-
-    for (var i = 0;i < current.length; i++); {
-        display[i] = "_";
-        output = display[i];
-        console.log(display);
-        document.getElementById("output-display").innerHTML = output;
-    }
-    // document.getElementById("output-display").innerHTML = output;
-    output = "";
-}
-
-var submit = function() {
-    output = "";
-    userLetter = event.key;
-
-    for (var x=0; x < current.length; x++); {
-    if(userLetter == letter[x]) {
-        display[x] = userLetter();
-        // win--;
-    }
-    output = output + display[x] + "";
-    }
-    document.getElementById("").innerHTML = output;
-    output = "";
-    lives--;
-
-    if (win < 1) {
-        document.getElementById("wins-text").innerHTML = "You win!";
-    }
-    else if (lives < 1) {
-        document.getElementById("losses-text").innerHTML = "You lose!";
-    }
-    else {
-        document.getElementById("lives-text").innerHTML = "You have " + lives +" guesses left";
-    }
-
+var currentPlay = function() {
+  document.onkeyup()
 }
 
 
-       
 
+//   for (var x = 0; x < current.length; x++);
+//   {
+//     if (userLetter == letter[x]) {
+//       // display[x] = userLetter();
+//       // win--;
+//     }
+//     // output = output + display[x] + "";
+//   }
+// };
+
+
+// if (win < 1) {
+//   document.getElementById("wins-text").innerHTML = "You win!";
+// } else if (lives < 1) {
+//   document.getElementById("losses-text").innerHTML = "You lose!";
+// } else {
+//   document.getElementById("lives-text").innerHTML =
+//     "You have " + lives + " guesses left";
+// }
 
 //execute
 
 window.onload = function() {
-    game();
-    setup();
-    // ("enter").onclick = submit; 
-    submit ();
-}
+  // game();
+  setup();
+  currentPlay();
+  // ("enter").onclick = submit;
+  // submit();
+};

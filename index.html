@@ -15,55 +15,46 @@
 
 <body>
 
-<div class="container">
-    <section class="intro">
-            <div class="card bg-transparent" style="width: 30rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Word Guess Game</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Try to guess the name of the US National Park!</h6>
-                        <p class="card-text">You have seven guesses per word</p>
-                    </div>
-                </div>
-
-    </section>
-
-
-    <section class="game">
-                <div class="card bg-transparent" style= "width: 30rem;">
-                    <div class="card-header bg-transparent">
-                      Word To Guess
-                    </div>
-                    
-                    <br>
-                    
-                    <p id="output-display"></p>
-
-                    <p id="wrong-display"></p>
-
-                    <p id="lives"></p>
-
-                    <p id="wins-display"></p>
-
-                    <p id ="losses-display"></p> 
-
-                    <form>
-                        <div class="form-group">
-                          <!-- <label for="guesslabel"></label> -->
-                          <input type="text" class="form-control" id="forminput" placeholder="Enter your guess">
-                        </div>
-                    </form>
-                    
-                    <!-- <div class="form"> 
-                        <label for="guessField">Enter a guess: </label> 
-                        <input type = "text" id = "guessField" class = "guessField"> 
-                        <input type = "submit" value = "Submit guess" 
-                               class = "guessSubmit" id = "submitguess"> 
-                    </div>  -->
-                  
-                </div>
-
-    </section>
-</div>
+    <div class="container">
+        <section class="intro">
+          <div class="card bg-transparent" style="width: 30rem;">
+            <div class="card-body">
+              <h5 class="card-title">Word Guess Game</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Try to guess the name of the US National Park, you will only need to guess the first word!</h6>
+              <p class="card-text">You have seven guesses per word</p>
+            </div>
+          </div>
+      
+        </section>
+      
+        <section id="game">
+          <div class="card bg-transparent" style="width: 30rem;">
+            <div class="card-header bg-transparent">
+              Word To Guess
+            </div>
+      
+            <br>
+      
+            <h1 id="output-display"></h1>
+      
+            <p id="wrong-display"></p>
+      
+            <p id="lives"></p>
+      
+            <p id="wins-display"></p>
+      
+            <p id="losses-display"></p>
+      
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="forminput" placeholder="Enter your guess">
+              </div>
+            </form>
+      
+          </div>
+      
+        </section>
+      </div>
 
 <script type ="text/javascript" src="assets/javascript/game_2.js"></script>
 

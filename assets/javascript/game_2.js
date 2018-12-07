@@ -1,3 +1,12 @@
+//declare var
+var words = ["sequoia", "glacier", "olympic", "redwood", "saguaro"];
+
+// var select = Math.floor(Math.random() * words.length) + 1;
+var current = "";
+var display = [];
+var win = 0;
+var losses = 0;
+var guessedLetter = "";
 var lives = 7;
 var userLetter = "";
 
@@ -11,32 +20,17 @@ var lossesText = document.getElementById("losses-display");
 //function
 
 var game = document.getElementById("game");
-
 var setup = function() {
   current = words[Math.floor(Math.random() * words.length) + 1];
-  display = current.split("").map(function(letter){
+  display = current.split("").map(function(letter) {
     return "_";
-  
-  })
+  });
   outputText.innerHTML = display.join(" ");
   console.log(win);
   winsText.innerHTML = win.toString();
   lossesText.innerHTML = losses.toString();
   livesText.innerHTML = lives.toString();
-  // document.onkeyup = function(event) {
-  //   userLetter = event.key;
-  };
-
-
-var collectInput = function() {
-  letter.addEventListener(keypress, collectInput, useCapture);
-}
-
-var currentPlay = function() {
-  document.onkeyup()
-}
-
-
+};
 
 //   for (var x = 0; x < current.length; x++);
 //   {
@@ -47,7 +41,6 @@ var currentPlay = function() {
 //     // output = output + display[x] + "";
 //   }
 // };
-
 
 // if (win < 1) {
 //   document.getElementById("wins-text").innerHTML = "You win!";
@@ -60,10 +53,10 @@ var currentPlay = function() {
 
 //execute
 
-window.onload = function() {
-  // game();
-  setup();
-  currentPlay();
-  // ("enter").onclick = submit;
-  // submit();
+setup();
+document.onkeyup = function(event) {
+  guessedLetter = event.key;
+  if (guessedLetter === current.indexOf()) {
+    display.push(guessedLetter);
+  }
 };
